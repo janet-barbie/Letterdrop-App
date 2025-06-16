@@ -1,5 +1,5 @@
 
-// @ts-nocheck
+
 import { getBlogById, updateBlog } from "@/app/actions/blogsController";
 import { db } from "@/db";
 import { blogCategory } from "@/db/schema";
