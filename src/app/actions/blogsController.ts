@@ -1,22 +1,23 @@
 "use server";
 
 import { eq, desc } from "drizzle-orm";
-import { blogs } from "../../../drizzle/schema";
-import { db } from "../../../drizzle";
+import { blogs } from "../../../db/schema";
+import { db } from "../../../db";
 
 export async function createBlog(formData: FormData) {
   const title = formData.get("title") as string;
   const content = formData.get("content") as string;
-  const userId = formData.get("userId") as string;
+  const categoryId = formData.get("categoryId")
   
-  if (!title || !content || !userId) {
+  if (!title || !content ) {
     throw new Error("Title, content, and userId are required");
   }
 
   await db.insert(blogs).values({ 
     title, 
     content, 
-    userId: parseInt(userId) 
+    // userId: (userId) ,
+    categoryId: categoryId ? Number(categoryId) : null,
   });
 }
 

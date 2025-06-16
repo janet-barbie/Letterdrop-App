@@ -1,27 +1,24 @@
+// components/EditCategoryModal.tsx
 "use client";
+
 import { useState } from "react";
 
 type Props = {
   id: number;
   initialName: string;
+  action: (formData: FormData) => void | Promise<void>; // passed server action
 };
 
-export default function EditCategoryModal({ id, initialName }: Props) {
+export default function EditCategoryModal({ id, initialName, action }: Props) {
   const [open, setOpen] = useState(false);
   const [categoryName, setCategoryName] = useState(initialName);
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const formData = new FormData();
+  const handleSubmit = async (formData: FormData) => {
+    formData.set("id", id.toString());
     formData.set("categoryName", categoryName);
-
-    await fetch(`/dashboard/category/update?id=${id}`, {
-      method: "POST",
-      body: formData,
-    });
-
+    await action(formData);
     setOpen(false);
-    window.location.reload(); // or use a better revalidation strategy
+    window.location.reload();
   };
 
   return (
@@ -37,7 +34,7 @@ export default function EditCategoryModal({ id, initialName }: Props) {
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
           <div className="bg-white p-6 rounded shadow-lg w-96">
             <h2 className="text-xl font-semibold mb-4">Edit Category</h2>
-            <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+            <form action={handleSubmit} className="flex flex-col gap-4">
               <input
                 name="categoryName"
                 value={categoryName}

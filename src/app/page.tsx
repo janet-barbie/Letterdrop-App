@@ -1,14 +1,14 @@
-import { Button } from "@/components/ui/button"
 
-export default function Home() {
+
+import { LoginForm } from "@/components/login-form"
+
+export default function LoginPage() {
   return (
-    <>
-    <main className = "h-screen flex flex-col gap-2 justify-center items-center">
-    <Button>Click me</Button>
-    <Button size="sm">Click me</Button>
-    <Button variant="ghost">Click me</Button>
-    </main>
-      
-    </>
+    <div className="bg-muted flex min-h-svh flex-col items-center justify-center gap-6 p-6 md:p-10">
+      <div className="flex w-full max-w-sm flex-col gap-6">
+
+        <LoginForm />
+      </div>
+    </div>
   )
 }

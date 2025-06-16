@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Navbar from "@/components/navbar";
-import Footer from "@/components/footer";
+import {Toaster} from "@/components/ui/sonner"
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,11 +15,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Navbar/>
-        {children}
-        <Footer/>
+        <div className="min-h-screen flex flex-col">
+          <main className="flex-grow">{children}</main>
+          <Toaster />
+   
+        </div>
       </body>
-    
     </html>
   );
 }

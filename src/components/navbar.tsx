@@ -1,23 +1,20 @@
+
+
 const Navbar = () => {
-    return (
-      <nav className="bg-primary dark:bg-slate-700 text-white py-4 px-6 flex items-center justify-between">
-        {/* Logo */}
-        <div className="text-2xl font-bold tracking-wide">
-          LETTERDROP
-        </div>
-  
-        {/* Actions */}
-        <div className="space-x-4">
-          <button className="bg-transparent border border-white text-white px-4 py-1 rounded hover:bg-white hover:text-primary transition">
-            Login
-          </button>
-          <button className="bg-white text-primary px-4 py-1 rounded hover:bg-opacity-90 transition">
-            Sign Up
-          </button>
-        </div>
-      </nav>
-    );
-  };
-  
-  export default Navbar;
-  
+  return (
+    <nav className="bg-white dark:bg-slate-800 shadow px-6 py-4 flex items-center justify-between">
+      <div className="text-xl font-semibold tracking-wide text-primary dark:text-white">
+        LETTERDROP Dashboard
+      </div>
+
+      <div className="flex items-center space-x-4">
+        <span className="text-sm text-gray-600 dark:text-gray-300">Admin</span>
+        <button className="bg-primary text-white px-3 py-1 rounded hover:opacity-90 transition">
+          Logout
+        </button>
+      </div>
+    </nav>
+  );
+};
+
+export default Navbar;
