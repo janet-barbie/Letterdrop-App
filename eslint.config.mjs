@@ -13,7 +13,7 @@ const eslintConfig = [
   // Load recommended base configs
   ...compat.extends("next/core-web-vitals", "next/typescript"),
 
-  // ✅ Add custom override here
+
   {
     rules: {
       "@typescript-eslint/no-explicit-any": "off", 
