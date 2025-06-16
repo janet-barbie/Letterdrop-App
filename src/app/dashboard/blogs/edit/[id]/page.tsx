@@ -7,12 +7,8 @@ import { revalidatePath } from "next/cache";
 import { notFound } from "next/navigation";
 
 
-interface EditBlogPageProps {
-  params: {
-    id: string;
-  };
-}
-export default async function EditBlogPage({ params }: EditBlogPageProps){
+
+export default async function EditBlogPage({ params }:any){
   const blogId = parseInt(params.id);
   const blog = await getBlogById(blogId);
   const categories = await db.select().from(blogCategory);

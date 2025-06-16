@@ -1,6 +1,6 @@
 {
   "/dashboard/blogs/page": "app/dashboard/blogs/page.js",
-  "/dashboard/blogs/create/page": "app/dashboard/blogs/create/page.js",
   "/dashboard/blogs/edit/[id]/page": "app/dashboard/blogs/edit/[id]/page.js",
+  "/dashboard/blogs/create/page": "app/dashboard/blogs/create/page.js",
   "/dashboard/categories/page": "app/dashboard/categories/page.js"
 }
